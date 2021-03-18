@@ -8,8 +8,15 @@
 </div>
 
 <div class="text-center mt-4 mb-4" >
+
+    <div class="alert alert-light" role="alert"
     
-    <button style="width: 200px;"
+    *ngIf="videos.length === 0"
+    >
+        No hay videos disponibles en este momento
+    </div>
+
+    <button style="width: 200px;" 
     class="btn btn-outline-light"
     *ngIf="videos.length > 0"
     (click)="cargarVideos()"
