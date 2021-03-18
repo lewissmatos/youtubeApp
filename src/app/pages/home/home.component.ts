@@ -10,13 +10,13 @@ import { YoutubeService } from 'src/app/services/youtube.service';
 export class HomeComponent implements OnInit {
 
   videos: Video[] = []
-  
+  nombreCanal = ''
   constructor(private ytService: YoutubeService) {
-    
+
   }
 
   ngOnInit(): void {
-    
+
     this.cargarVideos()
   }
 
@@ -25,6 +25,8 @@ export class HomeComponent implements OnInit {
       .subscribe(resp => {
 
         this.videos.push(...resp)
+
+        this.nombreCanal = this.videos[0].channelTitle
         console.log(this.videos)
       }
 
