@@ -1,0 +1,52 @@
+<!-- <div class="text-center">
+    
+
+    <a href="" class="my-card ">
+    
+        <img width="400px"
+        src="https://www.tonica.la/__export/1606714862895/sites/debate/img/2020/11/29/the-flash-produccion-serie-atrasada-caso-covid-19_crop1606714819794.png_423682103.png" class="img img-responsive"/>
+        
+        <div class="profile-name">The Flash</div>
+            <div class="profile-position">Reverse Flash</div>
+        
+        
+            
+        <div class="profile-overview">
+        
+            <div class="profile-overview">
+                <div class="row">
+                    <div class="col-ms-4">
+                        <h4>Marvel</h4>
+                        <p>Primera aparición: 
+                            <br>    
+                            <small>16-02-1998</small>
+                        </p>                    
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+                
+    </a>
+</div>
+ -->
+
+<div class="row row-cols-1 row-cols-md-3 g-4 animated fadeIn mt-4">
+    
+    <div class="card-body m-1 animated fadeIn" style="width: 18rem;"
+    *ngFor="let item of items"
+    >
+        <div class="animated fadeIn">
+
+            <img [src]="item.thumbnails.high.url" class="card-img-top" >
+            <div class="card-body">
+                <h5 class="card-title">{{item.title}}</h5>
+                <p class="card-text">Autor: {{item.channelTitle}}</p>
+                <p class="card-text">{{item.publishedAt | date}}</p>
+                <button (click)="mostrarVideo(item)" class="btn btn-light" style="width: 100%;">Ver video</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

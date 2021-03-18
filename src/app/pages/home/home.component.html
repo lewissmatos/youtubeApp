@@ -1,0 +1,20 @@
+<h1>YouTube videos</h1>
+<hr>
+
+<div class="container animated fadeIn " >
+
+    <app-card [items]="videos"></app-card>
+
+</div>
+
+<div class="text-center mt-4 mb-4" >
+    
+    <button style="width: 200px;"
+    class="btn btn-outline-light"
+    *ngIf="videos.length > 0"
+    (click)="cargarVideos()"
+    >
+        Ver mas
+        <i style="margin-left: 6px;" class="fa fa-plus"></i>
+    </button>
+</div>
