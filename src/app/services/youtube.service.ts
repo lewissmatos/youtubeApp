@@ -9,7 +9,7 @@ export class YoutubeService {
 
   private url: string = 'https://www.googleapis.com/youtube/v3'
   private apiKey: string = 'AIzaSyAn2SuxrMYu6dPyIeid8eIlqQ1r0tfE3Dg'
-  private playlist: string = 'UUuaPTYj15JSkETGnEseaFFg'
+  private playlist: string = 'UU0_95MpNlRz9x7JmsXBClZA'
   private nextPageToken: string = ''
 
   constructor(private http: HttpClient) {

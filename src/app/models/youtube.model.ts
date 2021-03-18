@@ -16,49 +16,29 @@ export interface YoutubeResponse {
 }
 
 export interface Item {
-  kind: ItemKind;
+  kind: string;
   etag: string;
   id: string;
   snippet: Video;
 }
 
-export enum ItemKind {
-  YoutubePlaylistItem = "youtube#playlistItem",
-}
-
 export interface Video {
   publishedAt: Date;
-  channelId: ChannelID;
+  channelId: string;
   title: string;
   description: string;
   thumbnails: Thumbnails;
-  channelTitle: ChannelTitle;
-  playlistId: PlaylistID;
+  channelTitle: string;
+  playlistId: string;
   position: number;
   resourceId: ResourceID;
-  videoOwnerChannelTitle: ChannelTitle;
-  videoOwnerChannelId: ChannelID;
-}
-
-export enum ChannelID {
-  UCUAPTYj15JSkETGnEseaFFg = "UCuaPTYj15JSkETGnEseaFFg",
-}
-
-export enum ChannelTitle {
-  FernandoHerrera = "Fernando Herrera",
-}
-
-export enum PlaylistID {
-  UUuaPTYj15JSkETGnEseaFFg = "UUuaPTYj15JSkETGnEseaFFg",
+  videoOwnerChannelTitle: string;
+  videoOwnerChannelId: string;
 }
 
 export interface ResourceID {
-  kind: ResourceIDKind;
+  kind: string;
   videoId: string;
-}
-
-export enum ResourceIDKind {
-  YoutubeVideo = "youtube#video",
 }
 
 export interface Thumbnails {
@@ -66,7 +46,7 @@ export interface Thumbnails {
   medium: Default;
   high: Default;
   standard: Default;
-  maxres?: Default;
+  maxres: Default;
 }
 
 export interface Default {
@@ -233,26 +213,26 @@ const typeMap: any = {
     { json: "pageInfo", js: "pageInfo", typ: r("PageInfo") },
   ], false),
   "Item": o([
-    { json: "kind", js: "kind", typ: r("ItemKind") },
+    { json: "kind", js: "kind", typ: "" },
     { json: "etag", js: "etag", typ: "" },
     { json: "id", js: "id", typ: "" },
     { json: "snippet", js: "snippet", typ: r("Snippet") },
   ], false),
   "Snippet": o([
     { json: "publishedAt", js: "publishedAt", typ: Date },
-    { json: "channelId", js: "channelId", typ: r("ChannelID") },
+    { json: "channelId", js: "channelId", typ: "" },
     { json: "title", js: "title", typ: "" },
     { json: "description", js: "description", typ: "" },
     { json: "thumbnails", js: "thumbnails", typ: r("Thumbnails") },
-    { json: "channelTitle", js: "channelTitle", typ: r("ChannelTitle") },
-    { json: "playlistId", js: "playlistId", typ: r("PlaylistID") },
+    { json: "channelTitle", js: "channelTitle", typ: "" },
+    { json: "playlistId", js: "playlistId", typ: "" },
     { json: "position", js: "position", typ: 0 },
     { json: "resourceId", js: "resourceId", typ: r("ResourceID") },
-    { json: "videoOwnerChannelTitle", js: "videoOwnerChannelTitle", typ: r("ChannelTitle") },
-    { json: "videoOwnerChannelId", js: "videoOwnerChannelId", typ: r("ChannelID") },
+    { json: "videoOwnerChannelTitle", js: "videoOwnerChannelTitle", typ: "" },
+    { json: "videoOwnerChannelId", js: "videoOwnerChannelId", typ: "" },
   ], false),
   "ResourceID": o([
-    { json: "kind", js: "kind", typ: r("ResourceIDKind") },
+    { json: "kind", js: "kind", typ: "" },
     { json: "videoId", js: "videoId", typ: "" },
   ], false),
   "Thumbnails": o([
@@ -260,7 +240,7 @@ const typeMap: any = {
     { json: "medium", js: "medium", typ: r("Default") },
     { json: "high", js: "high", typ: r("Default") },
     { json: "standard", js: "standard", typ: r("Default") },
-    { json: "maxres", js: "maxres", typ: u(undefined, r("Default")) },
+    { json: "maxres", js: "maxres", typ: r("Default") },
   ], false),
   "Default": o([
     { json: "url", js: "url", typ: "" },
@@ -271,19 +251,4 @@ const typeMap: any = {
     { json: "totalResults", js: "totalResults", typ: 0 },
     { json: "resultsPerPage", js: "resultsPerPage", typ: 0 },
   ], false),
-  "ItemKind": [
-    "youtube#playlistItem",
-  ],
-  "ChannelID": [
-    "UCuaPTYj15JSkETGnEseaFFg",
-  ],
-  "ChannelTitle": [
-    "Fernando Herrera",
-  ],
-  "PlaylistID": [
-    "UUuaPTYj15JSkETGnEseaFFg",
-  ],
-  "ResourceIDKind": [
-    "youtube#video",
-  ],
 };
