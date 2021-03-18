@@ -1,0 +1,21 @@
+<div class=" container animated fadeIn fast">
+
+    <div class="row">
+        <div class="col">
+            <input type="text" #termino class="form-control" (keyup)="buscar(termino.value)" placeholder="Buscar Artista">
+                  
+        </div>
+
+        
+
+    </div>
+
+    <app-card [items]="vidsFiltrados" class="m-4">
+    </app-card>
+
+    <div class="alert alert-danger" role="alert"
+        *ngIf="vidsFiltrados.length === 0 && busqueda"
+        >
+        No hay videos disponibles en este momento
+        </div>
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Video } from 'src/app/models/youtube.model';
+import { YoutubeService } from 'src/app/services/youtube.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ytService: YoutubeService) { }
 
   ngOnInit(): void {
   }
 
+  
 }
