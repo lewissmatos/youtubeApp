@@ -16,13 +16,13 @@ export class YoutubeService {
 
   }
 
-  getVideos() {
+  getVideos(max: string) {
 
     const url = `${this.url}/playlistItems`
 
     const params = new HttpParams()
       .set('part', 'snippet')
-      .set('maxResults', '9')
+      .set('maxResults', max)
       .set('playlistId', this.playlist)
       .set('key', this.apiKey)
       .set('pageToken', this.nextPageToken)
@@ -30,15 +30,15 @@ export class YoutubeService {
     return this.http.get<YoutubeResponse>(url, { params })
       .pipe(
 
-
         map(resp => {
           this.nextPageToken = resp.nextPageToken
           return resp.items
         }),
 
         map(items => items.map(video => video.snippet))
-      )
-
+    )
+    
+    
   }
 
 }

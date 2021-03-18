@@ -23,7 +23,7 @@ export class SearchComponent implements OnInit {
 
 
   cargarVideos() {
-    this.ytService.getVideos()
+    this.ytService.getVideos('500')
       .subscribe(resp => {
 
         this.videos.push(...resp)
@@ -37,8 +37,7 @@ export class SearchComponent implements OnInit {
     this.busqueda = true
 
     this.vidsFiltrados = this.videos.filter(x => x.title.toLowerCase().includes(termino))
-    console.log(this.videos)
-    console.log(this.vidsFiltrados)
+   
   }
 
 }
